@@ -1,0 +1,2735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Wealth Through Smart Investing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #ffffff;
+            --accent: #FF6B35;
+            --gray-50: #FAFAFA;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E5E5;
+            --gray-300: #D4D4D4;
+            --gray-400: #A3A3A3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--secondary);
+            color: var(--primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 80px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .slide-content {
+            max-width: 1400px;
+            width: 100%;
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--gray-600) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 60px;
+        }
+        
+        h3 {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+        
+        .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--gray-500);
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 80px;
+            max-width: 800px;
+        }
+        
+        .hero {
+            background: var(--primary);
+            color: var(--secondary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0,102,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+        
+        .hero h1 {
+            -webkit-text-fill-color: var(--secondary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero .subtitle {
+            color: var(--gray-300);
+            position: relative;
+            z-index: 1;
+            margin: 0 auto 60px;
+        }
+        
+        .stat-highlight {
+            display: inline-block;
+            padding: 8px 24px;
+            background: var(--accent);
+            color: var(--secondary);
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-highlight:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,102,255,0.3);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 48px;
+            margin: 80px 0;
+        }
+        
+        .card {
+            background: var(--gray-50);
+            padding: 48px;
+            border-radius: 24px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border-color: var(--gray-300);
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card h3 {
+            margin-bottom: 20px;
+        }
+        
+        .card p {
+            color: var(--gray-600);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        .formula-container {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 80px 60px;
+            border-radius: 32px;
+            margin: 80px 0;
+            text-align: center;
+        }
+        
+        .formula {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            letter-spacing: -0.02em;
+            margin: 40px 0;
+            line-height: 1.4;
+        }
+        
+        .stat-box {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 48px;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(0,102,255,0.1);
+        }
+        
+        .stat-number {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            display: block;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray-500);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 80px 0;
+        }
+        
+        .comparison-item {
+            padding: 48px;
+            border-radius: 24px;
+            border: 2px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+        
+        .comparison-item.highlight {
+            background: var(--primary);
+            color: var(--secondary);
+            border-color: var(--primary);
+        }
+        
+        .comparison-item.highlight h3,
+        .comparison-item.highlight .stat-number {
+            color: var(--secondary);
+            -webkit-text-fill-color: var(--secondary);
+        }
+        
+        .comparison-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .data-table {
+            width: 100%;
+            margin: 60px 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .data-table thead {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+        
+        .data-table th {
+            padding: 24px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .data-table td {
+            padding: 24px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 1rem;
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .data-table tbody tr {
+            transition: background 0.2s ease;
+        }
+        
+        .data-table tbody tr:hover {
+            background: var(--gray-50);
+        }
+        
+        .data-table .highlight-row {
+            background: var(--gray-100);
+            font-weight: 600;
+        }
+        
+        .accent-line {
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 32px 0;
+        }
+        
+        .key-insight {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--gray-800) 100%);
+            color: var(--secondary);
+            padding: 80px 60px;
+            border-radius: 32px;
+            margin: 80px 0;
+            text-align: center;
+        }
+        
+        .key-insight h3 {
+            color: var(--secondary);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            margin-bottom: 24px;
+        }
+        
+        .key-insight p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.6;
+            color: var(--gray-300);
+        }
+        
+        .list-minimal {
+            list-style: none;
+            margin: 40px 0;
+        }
+        
+        .list-minimal li {
+            padding: 20px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            border-bottom: 1px solid var(--gray-200);
+            transition: padding-left 0.3s ease;
+        }
+        
+        .list-minimal li:last-child {
+            border-bottom: none;
+        }
+        
+        .list-minimal li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 28px;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        
+        .list-minimal li:hover {
+            padding-left: 48px;
+        }
+        
+        .list-minimal li:hover::before {
+            transform: scale(1.5);
+        }
+        
+        .chart-minimal {
+            margin: 80px 0;
+            padding: 60px;
+            background: var(--gray-50);
+            border-radius: 32px;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 60px;
+            right: 60px;
+            display: flex;
+            gap: 16px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .nav-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+        
+        .nav-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .progress-indicator {
+            position: fixed;
+            top: 60px;
+            right: 60px;
+            padding: 16px 32px;
+            background: var(--secondary);
+            border: 1px solid var(--gray-200);
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .progress-indicator:hover {
+            background: var(--gray-50);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+        }
+        
+        .slide-navigator {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100vh;
+            background: var(--secondary);
+            box-shadow: -4px 0 30px rgba(0,0,0,0.15);
+            z-index: 1002;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            padding: 80px 40px 40px;
+        }
+        
+        .slide-navigator.active {
+            right: 0;
+        }
+        
+        .navigator-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1001;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        
+        .navigator-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .navigator-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--gray-100);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .navigator-close:hover {
+            background: var(--gray-200);
+            transform: rotate(90deg);
+        }
+        
+        .navigator-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+        
+        .navigator-section {
+            margin-bottom: 32px;
+        }
+        
+        .navigator-section-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        
+        .navigator-item {
+            padding: 12px 16px;
+            margin-bottom: 4px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .navigator-item:hover {
+            background: var(--gray-100);
+        }
+        
+        .navigator-item.current {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+        
+        .navigator-item-number {
+            font-weight: 700;
+            font-size: 0.85rem;
+            min-width: 24px;
+            opacity: 0.6;
+        }
+        
+        .navigator-item.current .navigator-item-number {
+            opacity: 1;
+        }
+        
+        .navigator-item-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .keyboard-hint {
+            position: fixed;
+            bottom: 60px;
+            left: 60px;
+            padding: 12px 20px;
+            background: var(--secondary);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            z-index: 1000;
+            opacity: 0;
+            animation: fadeInHint 0.5s ease 2s forwards, fadeOutHint 0.5s ease 8s forwards;
+        }
+        
+        @keyframes fadeInHint {
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeOutHint {
+            to { opacity: 0; }
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 80px 24px;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .card {
+                padding: 32px 24px;
+            }
+            
+            .navigation {
+                bottom: 24px;
+                right: 24px;
+            }
+            
+            .progress-indicator {
+                top: 24px;
+                right: 24px;
+                padding: 12px 20px;
+                font-size: 0.8rem;
+            }
+            
+            .slide-navigator {
+                width: 100%;
+                right: -100%;
+                padding: 80px 24px 40px;
+            }
+            
+            .keyboard-hint {
+                bottom: 24px;
+                left: 24px;
+                font-size: 0.75rem;
+                padding: 10px 16px;
+            }
+        }
+        
+        .icon-lg {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            display: block;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--gray-100);
+            color: var(--gray-700);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        
+        .badge.accent {
+            background: var(--accent);
+            color: var(--secondary);
+        }
+        
+        .split-view {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 80px 0;
+        }
+        
+        @media (max-width: 968px) {
+            .split-view {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="progress-indicator" onclick="toggleNavigator()" title="Click to jump to slide">
+        <span id="currentSlide">1</span> / <span id="totalSlides">30</span>
+    </div>
+    
+    <div class="navigator-overlay" onclick="toggleNavigator()"></div>
+    <div class="slide-navigator">
+        <button class="navigator-close" onclick="toggleNavigator()">×</button>
+        <h2 class="navigator-title">Jump to Slide</h2>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Introduction</div>
+            <div class="navigator-item" onclick="goToSlide(0)">
+                <span class="navigator-item-number">1</span>
+                <span class="navigator-item-title">Title & Introduction</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Core Concepts</div>
+            <div class="navigator-item" onclick="goToSlide(1)">
+                <span class="navigator-item-number">2</span>
+                <span class="navigator-item-title">Compound Interest</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(2)">
+                <span class="navigator-item-number">3</span>
+                <span class="navigator-item-title">Rule of 72</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(3)">
+                <span class="navigator-item-number">4</span>
+                <span class="navigator-item-title">Ben & Arthur Case Study</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Investment Types</div>
+            <div class="navigator-item" onclick="goToSlide(4)">
+                <span class="navigator-item-number">5</span>
+                <span class="navigator-item-title">Asset Types Overview</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(5)">
+                <span class="navigator-item-number">6</span>
+                <span class="navigator-item-title">Risk vs. Return</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(19)">
+                <span class="navigator-item-number">20</span>
+                <span class="navigator-item-title">Savings vs. Investment</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Psychology & Strategy</div>
+            <div class="navigator-item" onclick="goToSlide(6)">
+                <span class="navigator-item-number">7</span>
+                <span class="navigator-item-title">Market Emotions Cycle</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(8)">
+                <span class="navigator-item-number">9</span>
+                <span class="navigator-item-title">Three Fatal Mistakes</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(15)">
+                <span class="navigator-item-number">16</span>
+                <span class="navigator-item-title">Don't Chase Performance</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Index Funds</div>
+            <div class="navigator-item" onclick="goToSlide(7)">
+                <span class="navigator-item-number">8</span>
+                <span class="navigator-item-title">Why Index Funds Win</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(9)">
+                <span class="navigator-item-number">10</span>
+                <span class="navigator-item-title">True Cost of Fees</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(26)">
+                <span class="navigator-item-number">27</span>
+                <span class="navigator-item-title">Active vs. Passive</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Getting Started</div>
+            <div class="navigator-item" onclick="goToSlide(10)">
+                <span class="navigator-item-number">11</span>
+                <span class="navigator-item-title">Opening Your Roth IRA</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(11)">
+                <span class="navigator-item-number">12</span>
+                <span class="navigator-item-title">Four Simple Steps</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(28)">
+                <span class="navigator-item-number">29</span>
+                <span class="navigator-item-title">Final Action Plan</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Detailed Analysis</div>
+            <div class="navigator-item" onclick="goToSlide(12)">
+                <span class="navigator-item-number">13</span>
+                <span class="navigator-item-title">Rule of 72 Details</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(13)">
+                <span class="navigator-item-number">14</span>
+                <span class="navigator-item-title">Starting Early Impact</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(14)">
+                <span class="navigator-item-number">15</span>
+                <span class="navigator-item-title">Ben & Arthur Year by Year</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Market Data</div>
+            <div class="navigator-item" onclick="goToSlide(16)">
+                <span class="navigator-item-number">17</span>
+                <span class="navigator-item-title">200+ Years of Growth</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(17)">
+                <span class="navigator-item-number">18</span>
+                <span class="navigator-item-title">Bull & Bear Markets</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(22)">
+                <span class="navigator-item-number">23</span>
+                <span class="navigator-item-title">S&P 500 Long-term</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(24)">
+                <span class="navigator-item-number">25</span>
+                <span class="navigator-item-title">S&P 500 Sector Map</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Research & Evaluation</div>
+            <div class="navigator-item" onclick="goToSlide(18)">
+                <span class="navigator-item-number">19</span>
+                <span class="navigator-item-title">Market Capitalization</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(20)">
+                <span class="navigator-item-number">21</span>
+                <span class="navigator-item-title">Evaluating Mutual Funds</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(21)">
+                <span class="navigator-item-number">22</span>
+                <span class="navigator-item-title">Using Morningstar</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(22)">
+                <span class="navigator-item-number">23</span>
+                <span class="navigator-item-title">Using US News</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(25)">
+                <span class="navigator-item-number">26</span>
+                <span class="navigator-item-title">Finding Good Funds</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Advanced Topics</div>
+            <div class="navigator-item" onclick="goToSlide(23)">
+                <span class="navigator-item-number">24</span>
+                <span class="navigator-item-title">Diversification</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(23)">
+                <span class="navigator-item-number">24</span>
+                <span class="navigator-item-title">Small Cap Value</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(27)">
+                <span class="navigator-item-number">28</span>
+                <span class="navigator-item-title">Risk Reduction</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Resources</div>
+            <div class="navigator-item" onclick="goToSlide(24)">
+                <span class="navigator-item-number">25</span>
+                <span class="navigator-item-title">Investment Offices</span>
+            </div>
+            <div class="navigator-item" onclick="goToSlide(25)">
+                <span class="navigator-item-number">26</span>
+                <span class="navigator-item-title">Bitcoin vs. Roth IRA</span>
+            </div>
+        </div>
+        
+        <div class="navigator-section">
+            <div class="navigator-section-title">Conclusion</div>
+            <div class="navigator-item" onclick="goToSlide(29)">
+                <span class="navigator-item-number">30</span>
+                <span class="navigator-item-title">Ready to Begin</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="keyboard-hint">
+        💡 Use ← → arrow keys or click slide counter to navigate
+    </div>
+    
+    <!-- SLIDE 1: Hero -->
+    <div class="slide hero">
+        <div class="slide-content">
+            <h1 class="fade-in">Building Wealth<br>Through Smart<br>Investing</h1>
+            <p class="subtitle fade-in" style="animation-delay: 0.2s;">Your comprehensive guide to building lasting wealth through proven investment principles</p>
+            <div class="stat-highlight fade-in" style="animation-delay: 0.4s;">Updated October 2025</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: Compound Interest -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Core Concept</div>
+            <h2>The Power of<br>Compound Interest</h2>
+            <p class="subtitle">Einstein called it "the eighth wonder of the world." Those who understand it, earn it. Those who don't, pay it.</p>
+            
+            <div class="formula-container">
+                <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 40px; opacity: 0.8;">The Compound Interest Formula</p>
+                <div class="formula">A = P(1 + r/n)<sup>nt</sup></div>
+                <div style="margin-top: 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px; font-size: 1rem; opacity: 0.9;">
+                    <div><strong>A</strong> = Final Amount</div>
+                    <div><strong>P</strong> = Principal</div>
+                    <div><strong>r</strong> = Interest Rate</div>
+                    <div><strong>n</strong> = Compounds/Year</div>
+                    <div><strong>t</strong> = Time (years)</div>
+                </div>
+            </div>
+            
+            <div class="key-insight">
+                <h3>Interest on Interest</h3>
+                <p>Compound interest doesn't just pay you on your initial investment—it pays you on all the interest you've already earned. This exponential growth is the secret to building substantial wealth over time.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: Rule of 72 -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Mental Math</div>
+            <h2>The Rule of 72</h2>
+            <p class="subtitle">A simple shortcut to estimate how long it takes your money to double</p>
+            
+            <div class="formula-container">
+                <div class="formula">72 ÷ Interest Rate = Years to Double</div>
+                <p style="margin-top: 40px; font-size: 1.3rem; opacity: 0.9;">Example: 72 ÷ 6% = 12 years</p>
+            </div>
+            
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h3>6% Return</h3>
+                    <div class="accent-line"></div>
+                    <p>$5,000 doubles every 12 years</p>
+                    <div class="stat-box" style="margin-top: 32px;">
+                        <span class="stat-number">$80K</span>
+                        <span class="stat-label">After 48 Years</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-item highlight">
+                    <h3>12% Return</h3>
+                    <div class="accent-line" style="background: var(--secondary);"></div>
+                    <p style="color: var(--gray-300);">$5,000 doubles every 6 years</p>
+                    <div class="stat-box" style="margin-top: 32px; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
+                        <span class="stat-number" style="-webkit-text-fill-color: var(--secondary);">$1.28M</span>
+                        <span class="stat-label" style="color: var(--gray-300);">After 48 Years</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: Ben & Arthur Introduction -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Case Study</div>
+            <h2>Ben & Arthur</h2>
+            <p class="subtitle">Two brothers, two strategies, dramatically different outcomes. The most powerful demonstration of why starting early matters.</p>
+            
+            <div class="split-view">
+                <div class="card">
+                    <span class="icon-lg">👨</span>
+                    <h3>Ben's Strategy</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Started investing at age 19</li>
+                        <li>$2,000 per year for 8 years</li>
+                        <li>Total invested: $16,000</li>
+                        <li>Then stopped completely</li>
+                        <li>12% annual return</li>
+                    </ul>
+                    <div class="stat-box" style="margin-top: 40px;">
+                        <span class="stat-number">$2.3M</span>
+                        <span class="stat-label">At Age 65</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <span class="icon-lg">👨‍💼</span>
+                    <h3>Arthur's Strategy</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Started investing at age 27</li>
+                        <li>$2,000 per year for 39 years</li>
+                        <li>Total invested: $78,000</li>
+                        <li>Never stopped investing</li>
+                        <li>12% annual return</li>
+                    </ul>
+                    <div class="stat-box" style="margin-top: 40px;">
+                        <span class="stat-number">$1.5M</span>
+                        <span class="stat-label">At Age 65</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="key-insight">
+                <h3>The Shocking Truth</h3>
+                <p>Ben invested less than 1/5th the amount but ended up with $757,000 MORE. Time in the market beats timing the market.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: Investment Asset Types -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Foundation</div>
+            <h2>Investment<br>Asset Types</h2>
+            <p class="subtitle">Understanding your investment options and their characteristics</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Savings Account</h3>
+                    <div class="accent-line"></div>
+                    <p><strong>What it is:</strong> A loan to a bank</p>
+                    <p style="margin-top: 16px;"><strong>Average return:</strong> 0.5-5%</p>
+                    <p style="margin-top: 16px;"><strong>Risk:</strong> Very Low</p>
+                    <p style="margin-top: 16px; color: var(--accent); font-weight: 600;">Best for emergency funds</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Bonds</h3>
+                    <div class="accent-line"></div>
+                    <p><strong>What it is:</strong> A loan to a company/government</p>
+                    <p style="margin-top: 16px;"><strong>Average return:</strong> 4-6%</p>
+                    <p style="margin-top: 16px;"><strong>Risk:</strong> Low to Medium</p>
+                    <p style="margin-top: 16px; color: var(--accent); font-weight: 600;">Best for stable income</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Stocks (Equities)</h3>
+                    <div class="accent-line"></div>
+                    <p><strong>What it is:</strong> Ownership in a company</p>
+                    <p style="margin-top: 16px;"><strong>Average return:</strong> 9-10%</p>
+                    <p style="margin-top: 16px;"><strong>Risk:</strong> Medium to High</p>
+                    <p style="margin-top: 16px; color: var(--accent); font-weight: 600;">Best for long-term growth</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Mutual Funds</h3>
+                    <div class="accent-line"></div>
+                    <p><strong>What it is:</strong> Pooled investment in many assets</p>
+                    <p style="margin-top: 16px;"><strong>Average return:</strong> 7-10%</p>
+                    <p style="margin-top: 16px;"><strong>Risk:</strong> Varies by fund</p>
+                    <p style="margin-top: 16px; color: var(--accent); font-weight: 600;">Best for diversification</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: Risk vs Return -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Essential Trade-off</div>
+            <h2>Risk vs. Return</h2>
+            <p class="subtitle">The fundamental relationship that drives all investment decisions</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Investment Type</th>
+                        <th>Avg Annual Return</th>
+                        <th>Risk Level</th>
+                        <th>Years to Double</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Savings Account</td>
+                        <td>0.5%</td>
+                        <td>Very Low</td>
+                        <td>144 years</td>
+                    </tr>
+                    <tr>
+                        <td>Bonds</td>
+                        <td>4%</td>
+                        <td>Low-Medium</td>
+                        <td>18 years</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>S&P 500 Index</td>
+                        <td>9-10%</td>
+                        <td>Medium</td>
+                        <td>7-8 years</td>
+                    </tr>
+                    <tr>
+                        <td>Small Cap Value</td>
+                        <td>12%</td>
+                        <td>Medium-High</td>
+                        <td>6 years</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="key-insight">
+                <h3>Historical Performance</h3>
+                <p>Over long periods (20+ years), stocks have provided the highest returns despite short-term volatility. Time reduces risk significantly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: Market Emotions -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Psychology</div>
+            <h2>The Cycle of<br>Market Emotions</h2>
+            <p class="subtitle">Understanding why most investors underperform the market</p>
+            
+            <div class="chart-minimal">
+                <svg viewBox="0 0 900 500" style="width: 100%; height: auto;">
+                    <defs>
+                        <linearGradient id="upGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#e5e5e5;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:transparent;stop-opacity:0" />
+                        </linearGradient>
+                        <linearGradient id="downGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:transparent;stop-opacity:0" />
+                            <stop offset="100%" style="stop-color:#e5e5e5;stop-opacity:0.3" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <line x1="50" y1="250" x2="850" y2="250" stroke="#d4d4d4" stroke-width="1" stroke-dasharray="5,5"/>
+                    
+                    <path d="M 50,250 Q 150,150 250,100 T 450,100 Q 500,100 550,180 T 650,300 Q 700,350 750,380 T 850,250" 
+                          fill="none" 
+                          stroke="#000000" 
+                          stroke-width="3"/>
+                    
+                    <path d="M 50,250 Q 150,150 250,100 T 450,100 Q 500,100 550,180 L 550,250 L 50,250 Z" 
+                          fill="url(#upGrad)"/>
+                    <path d="M 550,180 T 650,300 Q 700,350 750,380 T 850,250 L 850,250 L 550,250 Z" 
+                          fill="url(#downGrad)"/>
+                    
+                    <circle cx="100" cy="200" r="6" fill="#000"/>
+                    <text x="100" y="225" font-size="12" fill="#525252" text-anchor="middle" font-weight="500">Optimism</text>
+                    
+                    <circle cx="200" cy="125" r="6" fill="#000"/>
+                    <text x="200" y="150" font-size="12" fill="#525252" text-anchor="middle" font-weight="500">Excitement</text>
+                    
+                    <circle cx="300" cy="95" r="6" fill="#000"/>
+                    <text x="300" y="120" font-size="12" fill="#525252" text-anchor="middle" font-weight="500">Thrill</text>
+                    
+                    <circle cx="400" cy="90" r="10" fill="#0066FF"/>
+                    <text x="400" y="65" font-size="13" fill="#0066FF" text-anchor="middle" font-weight="700">EUPHORIA</text>
+                    <text x="400" y="115" font-size="11" fill="#737373" text-anchor="middle">Maximum Risk</text>
+                    
+                    <circle cx="500" cy="120" r="6" fill="#000"/>
+                    <text x="500" y="145" font-size="12" fill="#525252" text-anchor="middle" font-weight="500">Anxiety</text>
+                    
+                    <circle cx="580" cy="200" r="6" fill="#000"/>
+                    <text x="580" y="225" font-size="12" fill="#525252" text-anchor="middle" font-weight="500">Denial</text>
+                    
+                    <circle cx="650" cy="280" r="6" fill="#000"/>
+                    <text x="650" y="305" font-size="12" fill="#525252" text-anchor="middle" font-weight="500">Fear</text>
+                    
+                    <circle cx="700" cy="340" r="6" fill="#000"/>
+                    <text x="700" y="365" font-size="12" fill="#525252" text-anchor="middle" font-weight="500">Desperation</text>
+                    
+                    <circle cx="750" cy="375" r="10" fill="#0066FF"/>
+                    <text x="750" y="398" font-size="13" fill="#0066FF" text-anchor="middle" font-weight="700">PANIC</text>
+                    <text x="750" y="413" font-size="11" fill="#737373" text-anchor="middle">Maximum Opportunity</text>
+                    
+                    <circle cx="820" cy="280" r="6" fill="#000"/>
+                    <text x="820" y="305" font-size="12" fill="#525252" text-anchor="middle" font-weight="500">Hope</text>
+                </svg>
+            </div>
+            
+            <div class="key-insight">
+                <h3>Successful Investors Do the Opposite</h3>
+                <p>Buy when others panic (maximum opportunity). Stay calm when others are euphoric (maximum risk). Dollar-cost averaging removes emotion from the equation.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: Index Funds -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Passive Investing</div>
+            <h2>Why Index Funds Win</h2>
+            <p class="subtitle">Over 90% of actively managed funds underperform their index over 15+ years</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Ultra-Low Costs</h3>
+                    <div class="accent-line"></div>
+                    <p>Expense ratios as low as 0.02% vs. 1-2% for actively managed funds</p>
+                    <div class="stat-box" style="margin-top: 32px;">
+                        <span class="stat-number">$11K</span>
+                        <span class="stat-label">Saved over 20 years</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Consistent Performance</h3>
+                    <div class="accent-line"></div>
+                    <p>Match market returns with no manager risk or style drift</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Tax Efficiency</h3>
+                    <div class="accent-line"></div>
+                    <p>Low turnover means fewer capital gains distributions</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Total Transparency</h3>
+                    <div class="accent-line"></div>
+                    <p>You always know exactly what you own</p>
+                </div>
+            </div>
+            
+            <div class="key-insight">
+                <h3>Warren Buffett's Advice</h3>
+                <p>"The data is overwhelming: low-cost index funds are the best choice for the vast majority of investors."</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: Three Mistakes -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Avoid These</div>
+            <h2>Three Fatal<br>Investment Mistakes</h2>
+            <p class="subtitle">Common pitfalls that destroy wealth</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Ignoring Expenses</h3>
+                    <div class="accent-line"></div>
+                    <p>A 1% fee difference can cost hundreds of thousands over a lifetime.</p>
+                    <ul class="list-minimal" style="margin-top: 24px;">
+                        <li>Always choose no-load funds</li>
+                        <li>Keep expense ratios under 0.25%</li>
+                        <li>Avoid 12b-1 fees and sales charges</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Chasing Performance</h3>
+                    <div class="accent-line"></div>
+                    <p>Last year's winners are often next year's losers.</p>
+                    <ul class="list-minimal" style="margin-top: 24px;">
+                        <li>Stick with broad diversification</li>
+                        <li>Rebalance annually</li>
+                        <li>Focus on asset allocation</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Emotional Investing</h3>
+                    <div class="accent-line"></div>
+                    <p>Panic selling and greedy buying destroys wealth.</p>
+                    <ul class="list-minimal" style="margin-top: 24px;">
+                        <li>Create a plan and stick to it</li>
+                        <li>Use dollar-cost averaging</li>
+                        <li>Think long-term (20+ years)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: Expense Ratio Impact -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Critical Numbers</div>
+            <h2>The True Cost<br>of Fees</h2>
+            <p class="subtitle">$10,000 invested at 10% return for 20 years</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Expense Ratio</th>
+                        <th>Net Return</th>
+                        <th>Final Balance</th>
+                        <th>Lost to Fees</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td>0.02%</td>
+                        <td>9.98%</td>
+                        <td>$67,031</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>0.50%</td>
+                        <td>9.50%</td>
+                        <td>$61,416</td>
+                        <td style="color: #dc3545; font-weight: 600;">-$5,615</td>
+                    </tr>
+                    <tr>
+                        <td>1.00%</td>
+                        <td>9.00%</td>
+                        <td>$56,044</td>
+                        <td style="color: #dc3545; font-weight: 600;">-$10,987</td>
+                    </tr>
+                    <tr>
+                        <td>2.00%</td>
+                        <td>8.00%</td>
+                        <td>$46,610</td>
+                        <td style="color: #dc3545; font-weight: 600;">-$20,421</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="key-insight">
+                <h3>Small Fees = Big Impact</h3>
+                <p>A 2% expense ratio costs you over $20,000 on a $10,000 investment over 20 years. Keep fees under 0.25%!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: Opening an IRA -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Getting Started</div>
+            <h2>Opening Your<br>Roth IRA</h2>
+            <p class="subtitle">Three simple questions to answer</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="badge">Question 1</div>
+                    <h3>Account Type</h3>
+                    <div class="accent-line"></div>
+                    <p><strong>Traditional IRA:</strong> Tax deduction now, pay taxes later</p>
+                    <p style="margin-top: 16px;"><strong>Roth IRA:</strong> No tax deduction now, tax-free forever</p>
+                    <p style="margin-top: 24px; color: var(--accent); font-weight: 600;">Recommended: Roth IRA for young investors</p>
+                </div>
+                
+                <div class="card">
+                    <div class="badge">Question 2</div>
+                    <h3>Investment Choice</h3>
+                    <div class="accent-line"></div>
+                    <p><strong>Recommended:</strong> S&P 500 Index Fund</p>
+                    <ul class="list-minimal" style="margin-top: 16px;">
+                        <li>0.02-0.04% expense ratio</li>
+                        <li>500 companies</li>
+                        <li>~10% historical return</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="badge">Question 3</div>
+                    <h3>Which Company</h3>
+                    <div class="accent-line"></div>
+                    <p><strong>Top Choices:</strong></p>
+                    <ul class="list-minimal" style="margin-top: 16px;">
+                        <li>Fidelity (FNILX - 0.00%)</li>
+                        <li>Charles Schwab (SWPPX - 0.02%)</li>
+                        <li>Vanguard (VFIAX - 0.04%)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="formula-container">
+                <p style="font-size: 1.2rem; margin-bottom: 20px;">2025 Contribution Limits</p>
+                <div class="formula">$7,000/year<br><span style="font-size: 0.6em;">($8,000 if age 50+)</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: Action Plan -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Your Roadmap</div>
+            <h2>Four Simple Steps</h2>
+            <p class="subtitle">Start building wealth today</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 24px;">1</div>
+                    <h3>Open a Roth IRA</h3>
+                    <div class="accent-line"></div>
+                    <p>Choose Fidelity, Schwab, or Vanguard. All offer $0 minimums and excellent platforms.</p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 24px;">2</div>
+                    <h3>Invest in S&P 500</h3>
+                    <div class="accent-line"></div>
+                    <p>Choose a low-cost index fund. Set it and forget it.</p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 24px;">3</div>
+                    <h3>Automate Monthly</h3>
+                    <div class="accent-line"></div>
+                    <p>Set up automatic contributions. Remove emotion from investing.</p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 24px;">4</div>
+                    <h3>Stay the Course</h3>
+                    <div class="accent-line"></div>
+                    <p>Don't panic during market drops. Think decades, not days.</p>
+                </div>
+            </div>
+            
+            <div class="key-insight">
+                <h3>The Best Time Was Yesterday</h3>
+                <p>The second best time is today. Even small amounts invested regularly can grow into substantial wealth over time.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: Rule of 72 Details -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Detailed Analysis</div>
+            <h2>Rule of 72:<br>The Numbers</h2>
+            <p class="subtitle">See how different rates transform your initial $5,000 investment over 48 years</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Interest Rate</th>
+                        <th>Years to Double</th>
+                        <th>$5,000 After 48 Years</th>
+                        <th>Times Doubled</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.5%</td>
+                        <td>48 years</td>
+                        <td>$10,000</td>
+                        <td>1x</td>
+                    </tr>
+                    <tr>
+                        <td>3%</td>
+                        <td>24 years</td>
+                        <td>$20,000</td>
+                        <td>2x</td>
+                    </tr>
+                    <tr>
+                        <td>6%</td>
+                        <td>12 years</td>
+                        <td>$80,000</td>
+                        <td>4x</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>12%</td>
+                        <td>6 years</td>
+                        <td>$1,280,000</td>
+                        <td>8x</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="key-insight">
+                <h3>Exponential Growth</h3>
+                <p>At 12%, your money doubles 8 times in 48 years, turning $5,000 into over $1.2 million. At 1.5%, it only doubles once to $10,000.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 14: Power of Starting Early -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Time is Everything</div>
+            <h2>Single $2,000<br>Investment Impact</h2>
+            <p class="subtitle">S&P 500 at 10% annual return, held until age 65</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Age 15 Investment</h3>
+                    <div class="accent-line"></div>
+                    <div class="stat-box" style="margin: 32px 0;">
+                        <span class="stat-number">$296,623</span>
+                        <span class="stat-label">Balance at 65</span>
+                    </div>
+                    <p style="font-weight: 600; color: var(--accent);">50 years of growth</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Age 25 Investment</h3>
+                    <div class="accent-line"></div>
+                    <div class="stat-box" style="margin: 32px 0;">
+                        <span class="stat-number">$109,136</span>
+                        <span class="stat-label">Balance at 65</span>
+                    </div>
+                    <p style="font-weight: 600;">40 years of growth</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Age 35 Investment</h3>
+                    <div class="accent-line"></div>
+                    <div class="stat-box" style="margin: 32px 0;">
+                        <span class="stat-number">$40,155</span>
+                        <span class="stat-label">Balance at 65</span>
+                    </div>
+                    <p style="font-weight: 600;">30 years of growth</p>
+                </div>
+            </div>
+            
+            <div class="formula-container">
+                <p style="font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9;">Total for Ages 15-24 (10 years of $2,000 investments)</p>
+                <div class="formula">$1,970,428</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 15: Ben & Arthur Data -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Complete Analysis</div>
+            <h2>Ben & Arthur:<br>Year by Year</h2>
+            <p class="subtitle">Detailed progression showing the power of compound interest</p>
+            
+            <table class="data-table" style="font-size: 0.9rem;">
+                <thead>
+                    <tr>
+                        <th>Age</th>
+                        <th>Ben Invests</th>
+                        <th>Ben Total</th>
+                        <th>Arthur Invests</th>
+                        <th>Arthur Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>19</td>
+                        <td>$2,000</td>
+                        <td>$2,240</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>$2,000</td>
+                        <td>$27,551</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>27</td>
+                        <td>$0</td>
+                        <td>$30,857</td>
+                        <td>$2,000</td>
+                        <td>$2,240</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>$0</td>
+                        <td>$134,646</td>
+                        <td>$2,000</td>
+                        <td>$72,559</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>$0</td>
+                        <td>$418,191</td>
+                        <td>$2,000</td>
+                        <td>$264,665</td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td>$0</td>
+                        <td>$1,298,837</td>
+                        <td>$2,000</td>
+                        <td>$861,317</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>65</td>
+                        <td>$0</td>
+                        <td>$2,288,996</td>
+                        <td>$2,000</td>
+                        <td>$1,532,166</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="key-insight">
+                <h3>The Math Doesn't Lie</h3>
+                <p>Ben invested $16,000 total. Arthur invested $78,000 total. Ben ended with $757,000 MORE. Start early.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 16: Chasing Performance -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Investor Trap</div>
+            <h2>Don't Chase<br>Performance</h2>
+            <p class="subtitle">Why last year's winners become next year's losers</p>
+            
+            <table class="data-table" style="font-size: 0.85rem;">
+                <thead>
+                    <tr>
+                        <th>Ranking</th>
+                        <th>2015</th>
+                        <th>2016</th>
+                        <th>2017</th>
+                        <th>2020</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td>1st</td>
+                        <td>Consumer Disc.<br/>9.91%</td>
+                        <td>Energy<br/>26.05%</td>
+                        <td>Technology<br/>34.28%</td>
+                        <td>Technology<br/>43.89%</td>
+                    </tr>
+                    <tr>
+                        <td>2nd</td>
+                        <td>Healthcare<br/>6.86%</td>
+                        <td>Financials<br/>22.69%</td>
+                        <td>Materials<br/>23.94%</td>
+                        <td>Consumer Disc.<br/>33.30%</td>
+                    </tr>
+                    <tr>
+                        <td>3rd</td>
+                        <td>Technology<br/>5.63%</td>
+                        <td>Materials<br/>16.66%</td>
+                        <td>Industrials<br/>23.84%</td>
+                        <td>Communication<br/>23.61%</td>
+                    </tr>
+                    <tr style="background: #f5f5f5;">
+                        <td>Last</td>
+                        <td>Energy<br/>-21.45%</td>
+                        <td>Healthcare<br/>-2.83%</td>
+                        <td>Energy<br/>1.06%</td>
+                        <td>Energy<br/>-33.69%</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="key-insight">
+                <h3>Sector Rotation is Unpredictable</h3>
+                <p>Energy was #1 in 2016 (+26%) but LAST in 2015 and 2020. Average difference between best and worst: 30%+ per year. Diversification is the answer.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 17: Historical Performance -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Historical Data</div>
+            <h2>200+ Years<br>of Growth</h2>
+            <p class="subtitle">The Dow Jones Industrial Average from 1800-2020</p>
+            
+            <div class="chart-minimal">
+                <svg viewBox="0 0 800 400" style="width: 100%; height: auto;">
+                    <line x1="50" y1="50" x2="50" y2="350" stroke="#d4d4d4" stroke-width="2"/>
+                    <line x1="50" y1="350" x2="750" y2="350" stroke="#d4d4d4" stroke-width="2"/>
+                    
+                    <text x="30" y="50" font-size="11" fill="#737373">32768</text>
+                    <text x="30" y="125" font-size="11" fill="#737373">4096</text>
+                    <text x="30" y="200" font-size="11" fill="#737373">512</text>
+                    <text x="30" y="275" font-size="11" fill="#737373">64</text>
+                    <text x="30" y="350" font-size="11" fill="#737373">2</text>
+                    
+                    <text x="50" y="370" font-size="11" fill="#737373">1800</text>
+                    <text x="250" y="370" font-size="11" fill="#737373">1875</text>
+                    <text x="450" y="370" font-size="11" fill="#737373">1950</text>
+                    <text x="650" y="370" font-size="11" fill="#737373">2000</text>
+                    
+                    <polyline
+                        points="50,340 100,330 150,320 200,310 250,300 300,280 350,260 400,220 450,200 500,180 550,140 600,100 650,70 700,55 750,50"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="3"
+                    />
+                    
+                    <circle cx="425" cy="210" r="8" fill="#0066FF"/>
+                    <text x="435" y="195" font-size="11" fill="#0066FF" font-weight="600">1929 Crash</text>
+                    
+                    <line x1="50" y1="340" x2="750" y2="60" stroke="#e5e5e5" stroke-width="2" stroke-dasharray="5,5"/>
+                </svg>
+                <p style="text-align: center; margin-top: 24px; color: var(--gray-500); font-size: 0.9rem;">
+                    Logarithmic scale - each level represents a doubling of value
+                </p>
+            </div>
+            
+            <div class="key-insight">
+                <h3>Never Goes to Zero</h3>
+                <p>Even with the worst crash in history (1929), the market never approaches zero and always recovers to new highs. Long-term trend: upward.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 18: Bull & Bear Markets -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Market Cycles</div>
+            <h2>Bull & Bear<br>Markets</h2>
+            <p class="subtitle">Understanding market cycles from 1926-2018</p>
+            
+            <div class="comparison">
+                <div class="comparison-item" style="background: var(--gray-50);">
+                    <h3>🐂 Bull Markets</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li><strong>Average Duration:</strong> 9.8 years</li>
+                        <li><strong>Average Gain:</strong> 319%</li>
+                        <li><strong>Longest:</strong> 15.1 years (1990-2000)</li>
+                        <li><strong>Largest Gain:</strong> 935.8%</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-item" style="background: var(--gray-50);">
+                    <h3>🐻 Bear Markets</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li><strong>Average Duration:</strong> 1.3 years</li>
+                        <li><strong>Average Loss:</strong> -36%</li>
+                        <li><strong>Longest:</strong> 2.8 years (1929-1932)</li>
+                        <li><strong>Largest Loss:</strong> -83.4%</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="key-insight">
+                <h3>The Math Favors Patience</h3>
+                <p>Bull markets last 7.5x longer and gain far more than bear markets lose. Stay invested for the long term and you'll capture the gains.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 19: Market Cap Examples -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Company Sizes</div>
+            <h2>Market<br>Capitalization</h2>
+            <p class="subtitle">Real-world examples across size categories</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Size Range</th>
+                        <th>Examples</th>
+                        <th>Characteristics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Small-Cap</td>
+                        <td>Under $2B</td>
+                        <td>Red Robin, Zumiez</td>
+                        <td>Higher growth, higher risk</td>
+                    </tr>
+                    <tr>
+                        <td>Mid-Cap</td>
+                        <td>$2B - $10B</td>
+                        <td>Dunkin', Columbia</td>
+                        <td>Balance of growth & stability</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>Large-Cap</td>
+                        <td>$10B - $200B</td>
+                        <td>Netflix, Nike</td>
+                        <td>Stable, lower volatility</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>Mega-Cap</td>
+                        <td>$200B+</td>
+                        <td>Apple, Microsoft, Amazon</td>
+                        <td>Most stable, global leaders</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="key-insight">
+                <h3>Diversification Across Sizes</h3>
+                <p>S&P 500 index funds give you exposure to large and mega-cap companies. Consider adding small and mid-cap funds for complete diversification.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 20: Savings vs Investment -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Understanding the Difference</div>
+            <h2>Savings vs.<br>Investment</h2>
+            <p class="subtitle">Where should your money go?</p>
+            
+            <div class="split-view">
+                <div class="card">
+                    <h3>Savings Vehicles</h3>
+                    <div class="accent-line"></div>
+                    <p style="margin-bottom: 24px; color: var(--gray-600);">High Safety • Low Return</p>
+                    <ul class="list-minimal">
+                        <li>Savings Account</li>
+                        <li>Checking Account</li>
+                        <li>Money Market</li>
+                        <li>Certificates of Deposit</li>
+                    </ul>
+                    <div style="margin-top: 40px; padding: 24px; background: var(--gray-100); border-radius: 16px;">
+                        <p style="font-weight: 600; margin-bottom: 8px;">Best For:</p>
+                        <p style="font-size: 0.95rem; color: var(--gray-600);">Emergency funds, short-term goals (under 5 years)</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Investment Vehicles</h3>
+                    <div class="accent-line"></div>
+                    <p style="margin-bottom: 24px; color: var(--gray-600);">Higher Risk • Higher Return</p>
+                    <ul class="list-minimal">
+                        <li>Stocks (Equities)</li>
+                        <li>Bonds (Fixed Income)</li>
+                        <li>Mutual Funds</li>
+                        <li>ETFs</li>
+                    </ul>
+                    <div style="margin-top: 40px; padding: 24px; background: var(--primary); color: var(--secondary); border-radius: 16px;">
+                        <p style="font-weight: 600; margin-bottom: 8px;">Best For:</p>
+                        <p style="font-size: 0.95rem; opacity: 0.9;">Long-term goals (10+ years), retirement, wealth building</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 21: Evaluating Mutual Funds -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">The 3Rs + E</div>
+            <h2>Evaluating<br>Mutual Funds</h2>
+            <p class="subtitle">Returns, Reviews, Risk, and Expenses</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Returns</h3>
+                    <div class="accent-line"></div>
+                    <p>Performance over multiple periods</p>
+                    <ul class="list-minimal" style="margin-top: 20px; font-size: 0.95rem;">
+                        <li>1-year, 3-year, 5-year</li>
+                        <li>10-year performance</li>
+                        <li>Compare to category average</li>
+                        <li>Compare to benchmark index</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Reviews</h3>
+                    <div class="accent-line"></div>
+                    <p>Independent third-party ratings</p>
+                    <ul class="list-minimal" style="margin-top: 20px; font-size: 0.95rem;">
+                        <li>Morningstar rating (1-5 stars)</li>
+                        <li>Sustainability score</li>
+                        <li>Category ranking</li>
+                        <li>Lipper ratings</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Risk</h3>
+                    <div class="accent-line"></div>
+                    <p>Volatility and consistency measures</p>
+                    <ul class="list-minimal" style="margin-top: 20px; font-size: 0.95rem;">
+                        <li>Standard deviation</li>
+                        <li>Beta (market sensitivity)</li>
+                        <li>Alpha (excess return)</li>
+                        <li>Sharpe ratio</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Expenses</h3>
+                    <div class="accent-line"></div>
+                    <p>Keep costs as low as possible</p>
+                    <ul class="list-minimal" style="margin-top: 20px; font-size: 0.95rem;">
+                        <li>Load: 0% (no-load only)</li>
+                        <li>Expense ratio: Under 1%</li>
+                        <li>Index funds: Under 0.25%</li>
+                        <li>Transaction fees: $0</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 22: Morningstar Instructions -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Research Guide</div>
+            <h2>Using Morningstar<br>to Evaluate Funds</h2>
+            <p class="subtitle">Step-by-step instructions for morningstar.com</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="badge accent">Step 1</div>
+                    <h3>Enter Ticker Symbol</h3>
+                    <div class="accent-line"></div>
+                    <p style="font-size: 0.95rem;">Type the fund's ticker symbol in the search box at the top of morningstar.com</p>
+                </div>
+                
+                <div class="card">
+                    <div class="badge accent">Step 2</div>
+                    <h3>Quote Tab - Category</h3>
+                    <div class="accent-line"></div>
+                    <p style="font-size: 0.95rem;">Find the fund's category (e.g., "Large Blend", "Technology", "Small Value")</p>
+                </div>
+                
+                <div class="card">
+                    <div class="badge accent">Step 3</div>
+                    <h3>People Tab - Manager Tenure</h3>
+                    <div class="accent-line"></div>
+                    <p style="font-size: 0.95rem;">Check how long the current manager has run the fund. Longer tenure = more reliable track record</p>
+                </div>
+                
+                <div class="card">
+                    <div class="badge accent">Step 4</div>
+                    <h3>Price Tab - Loads & Fees</h3>
+                    <div class="accent-line"></div>
+                    <p style="font-size: 0.95rem;"><strong>Maximum Sales Fees:</strong> Should show "—" (no load)</p>
+                    <p style="font-size: 0.95rem; margin-top: 12px;"><strong>Expense Ratio:</strong> Keep under 1.00%</p>
+                </div>
+                
+                <div class="card">
+                    <div class="badge accent">Step 5</div>
+                    <h3>Performance Tab - Returns</h3>
+                    <div class="accent-line"></div>
+                    <p style="font-size: 0.95rem;">Scroll to "Trailing Returns" section. Record 1-month, 1-year, 3-year, 5-year, and 10-year returns</p>
+                </div>
+                
+                <div class="card">
+                    <div class="badge accent">Step 6</div>
+                    <h3>Performance Tab - Star Rating</h3>
+                    <div class="accent-line"></div>
+                    <p style="font-size: 0.95rem;">Look for stars next to ticker symbol. 4-5 stars = good, 1-2 stars = poor</p>
+                </div>
+                
+                <div class="card">
+                    <div class="badge accent">Step 7</div>
+                    <h3>Sustainability Tab - ESG Score</h3>
+                    <div class="accent-line"></div>
+                    <p style="font-size: 0.95rem;">Find "Historical Sustainability Score Percent Rank". Lower % = better (less ESG risk)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 23: US News Instructions -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Research Guide</div>
+            <h2>Using US News<br>Fund Rankings</h2>
+            <p class="subtitle">Step-by-step instructions for money.usnews.com/funds</p>
+            
+            <div class="split-view">
+                <div>
+                    <div class="card" style="margin-bottom: 32px;">
+                        <div class="badge accent">Rankings</div>
+                        <h3>Category Ranking</h3>
+                        <div class="accent-line"></div>
+                        <p style="font-size: 0.95rem;">Enter ticker symbol, scroll to "Rankings" section</p>
+                        <p style="font-size: 0.95rem; margin-top: 12px;">Shows: "#XX out of YYY funds"</p>
+                        <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 600; color: var(--accent);">Note: Index funds won't be ranked</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="badge accent">Lipper Scores</div>
+                        <h3>Five-Factor Rating</h3>
+                        <div class="accent-line"></div>
+                        <p style="font-size: 0.95rem;">Each fund gets 5 separate Lipper scores (1-5 scale):</p>
+                        <ul class="list-minimal" style="margin-top: 16px; font-size: 0.9rem;">
+                            <li><strong>Total Return</strong> - Overall performance</li>
+                            <li><strong>Consistent Return</strong> - Reliability</li>
+                            <li><strong>Preservation</strong> - Capital protection</li>
+                            <li><strong>Expense</strong> - Fee efficiency</li>
+                            <li><strong>Tax Efficiency</strong> - After-tax returns</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="card" style="margin-bottom: 32px;">
+                        <div class="badge accent">Risk Metrics</div>
+                        <h3>Standard Deviation</h3>
+                        <div class="accent-line"></div>
+                        <p style="font-size: 0.95rem;">Found in the "Risk" tab</p>
+                        <p style="font-size: 0.95rem; margin-top: 12px;">Measures consistency of returns:</p>
+                        <ul class="list-minimal" style="margin-top: 16px; font-size: 0.9rem;">
+                            <li><strong>Low (1-10):</strong> Stable, predictable</li>
+                            <li><strong>Medium (10-20):</strong> Moderate swings</li>
+                            <li><strong>High (20+):</strong> Volatile, risky</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Key Considerations</h3>
+                        <div class="accent-line"></div>
+                        <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 12px;">For long-term IRA investors, focus on:</p>
+                        <ul class="list-minimal" style="font-size: 0.9rem;">
+                            <li>Total Return (Lipper #1)</li>
+                            <li>Consistent Return (Lipper #2)</li>
+                            <li>Expense (Lipper #4)</li>
+                        </ul>
+                        <p style="font-size: 0.85rem; margin-top: 16px; color: var(--gray-600);">Tax efficiency matters less in tax-advantaged accounts like IRAs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 24: Diversification -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Risk Management</div>
+            <h2>The Power of<br>Diversification</h2>
+            <p class="subtitle">Don't put all your eggs in one basket</p>
+            
+            <div class="key-insight" style="margin-top: 60px;">
+                <h3>What is Diversification?</h3>
+                <p style="font-size: 1.2rem; line-height: 1.6;">Spreading investments across different types of assets, sectors, and companies to reduce risk. When one investment goes down, others may go up, smoothing out your overall returns.</p>
+            </div>
+            
+            <div class="grid" style="margin-top: 80px;">
+                <div class="card">
+                    <h3>By Asset Class</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Stocks (growth)</li>
+                        <li>Bonds (stability)</li>
+                        <li>Real estate</li>
+                        <li>Cash (emergency fund)</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>By Company Size</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Large-cap (stable)</li>
+                        <li>Mid-cap (balanced)</li>
+                        <li>Small-cap (growth)</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>By Sector</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Technology</li>
+                        <li>Healthcare</li>
+                        <li>Financials</li>
+                        <li>Consumer goods</li>
+                        <li>Energy</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>By Geography</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>US stocks</li>
+                        <li>International developed</li>
+                        <li>Emerging markets</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="formula-container" style="margin-top: 80px;">
+                <p style="font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9;">The S&P 500 Gives You Instant Diversification</p>
+                <div class="formula" style="font-size: 2rem;">500 Companies<br>11 Sectors<br>All Market Caps</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 25: S&P 500 Heat Map -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Market Visualization</div>
+            <h2>S&P 500<br>Sector Map</h2>
+            <p class="subtitle">Visual representation of market sectors and their performance</p>
+            
+            <div class="chart-minimal">
+                <svg viewBox="0 0 1000 600" style="width: 100%; height: auto;">
+                    <!-- Technology (Large, Green) -->
+                    <rect x="10" y="10" width="320" height="190" fill="#10b981" stroke="#fff" stroke-width="3"/>
+                    <text x="170" y="90" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">Technology</text>
+                    <text x="170" y="120" font-size="32" font-weight="800" fill="#fff" text-anchor="middle">+34.3%</text>
+                    <text x="170" y="145" font-size="14" fill="rgba(255,255,255,0.9)" text-anchor="middle">AAPL, MSFT, NVDA</text>
+                    
+                    <!-- Healthcare (Medium, Green) -->
+                    <rect x="340" y="10" width="320" height="190" fill="#34d399" stroke="#fff" stroke-width="3"/>
+                    <text x="500" y="90" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">Healthcare</text>
+                    <text x="500" y="120" font-size="32" font-weight="800" fill="#fff" text-anchor="middle">+23.9%</text>
+                    <text x="500" y="145" font-size="14" fill="rgba(255,255,255,0.9)" text-anchor="middle">UNH, JNJ, PFE</text>
+                    
+                    <!-- Financials (Medium, Light Green) -->
+                    <rect x="670" y="10" width="320" height="190" fill="#6ee7b7" stroke="#fff" stroke-width="3"/>
+                    <text x="830" y="90" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">Financials</text>
+                    <text x="830" y="120" font-size="32" font-weight="800" fill="#fff" text-anchor="middle">+22.0%</text>
+                    <text x="830" y="145" font-size="14" fill="rgba(255,255,255,0.9)" text-anchor="middle">JPM, BAC, WFC</text>
+                    
+                    <!-- Consumer Discretionary (Large, Medium Green) -->
+                    <rect x="10" y="210" width="240" height="190" fill="#10b981" stroke="#fff" stroke-width="3"/>
+                    <text x="130" y="285" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">Consumer</text>
+                    <text x="130" y="310" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">Discretionary</text>
+                    <text x="130" y="340" font-size="28" font-weight="800" fill="#fff" text-anchor="middle">+33.3%</text>
+                    
+                    <!-- Industrials (Medium) -->
+                    <rect x="260" y="210" width="200" height="190" fill="#86efac" stroke="#fff" stroke-width="3"/>
+                    <text x="360" y="290" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">Industrials</text>
+                    <text x="360" y="320" font-size="28" font-weight="800" fill="#fff" text-anchor="middle">+23.8%</text>
+                    
+                    <!-- Communication (Medium, Light Green) -->
+                    <rect x="470" y="210" width="190" height="190" fill="#6ee7b7" stroke="#fff" stroke-width="3"/>
+                    <text x="565" y="285" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">Communication</text>
+                    <text x="565" y="310" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">Services</text>
+                    <text x="565" y="340" font-size="26" font-weight="800" fill="#fff" text-anchor="middle">+23.6%</text>
+                    
+                    <!-- Consumer Staples (Small, Light) -->
+                    <rect x="670" y="210" width="150" height="120" fill="#d1fae5" stroke="#fff" stroke-width="3"/>
+                    <text x="745" y="255" font-size="16" font-weight="700" fill="#404040" text-anchor="middle">Consumer</text>
+                    <text x="745" y="275" font-size="16" font-weight="700" fill="#404040" text-anchor="middle">Staples</text>
+                    <text x="745" y="300" font-size="22" font-weight="800" fill="#404040" text-anchor="middle">+3.1%</text>
+                    
+                    <!-- Utilities (Small, Neutral) -->
+                    <rect x="830" y="210" width="160" height="120" fill="#e5e5e5" stroke="#fff" stroke-width="3"/>
+                    <text x="910" y="260" font-size="18" font-weight="700" fill="#404040" text-anchor="middle">Utilities</text>
+                    <text x="910" y="290" font-size="24" font-weight="800" fill="#404040" text-anchor="middle">+1.1%</text>
+                    
+                    <!-- Materials (Medium) -->
+                    <rect x="670" y="340" width="150" height="70" fill="#86efac" stroke="#fff" stroke-width="3"/>
+                    <text x="745" y="370" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">Materials</text>
+                    <text x="745" y="393" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">+16.7%</text>
+                    
+                    <!-- Real Estate (Small, Neutral) -->
+                    <rect x="830" y="340" width="160" height="70" fill="#e5e5e5" stroke="#fff" stroke-width="3"/>
+                    <text x="910" y="370" font-size="16" font-weight="700" fill="#404040" text-anchor="middle">Real Estate</text>
+                    <text x="910" y="393" font-size="20" font-weight="800" fill="#404040" text-anchor="middle">+3.2%</text>
+                    
+                    <!-- Energy (Medium, Red - Negative) -->
+                    <rect x="10" y="410" width="480" height="180" fill="#ef4444" stroke="#fff" stroke-width="3"/>
+                    <text x="250" y="480" font-size="28" font-weight="700" fill="#fff" text-anchor="middle">Energy</text>
+                    <text x="250" y="520" font-size="40" font-weight="800" fill="#fff" text-anchor="middle">-33.7%</text>
+                    <text x="250" y="550" font-size="16" fill="rgba(255,255,255,0.9)" text-anchor="middle">XOM, CVX, COP</text>
+                    
+                    <!-- S&P 500 Average (Reference) -->
+                    <rect x="500" y="410" width="490" height="180" fill="#0066FF" stroke="#fff" stroke-width="3"/>
+                    <text x="745" y="470" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">S&P 500</text>
+                    <text x="745" y="505" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">(Market Average)</text>
+                    <text x="745" y="545" font-size="40" font-weight="800" fill="#fff" text-anchor="middle">+18.4%</text>
+                </svg>
+                
+                <div style="margin-top: 32px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 24px; height: 24px; background: #10b981; border-radius: 4px;"></div>
+                        <span style="font-size: 0.9rem; color: var(--gray-600);">Strong Positive (+20% or more)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 24px; height: 24px; background: #86efac; border-radius: 4px;"></div>
+                        <span style="font-size: 0.9rem; color: var(--gray-600);">Moderate Positive (+10% to +20%)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 24px; height: 24px; background: #e5e5e5; border-radius: 4px;"></div>
+                        <span style="font-size: 0.9rem; color: var(--gray-600);">Neutral (0% to +10%)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 24px; height: 24px; background: #ef4444; border-radius: 4px;"></div>
+                        <span style="font-size: 0.9rem; color: var(--gray-600);">Negative (Below 0%)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="key-insight" style="margin-top: 60px;">
+                <h3>Sector Diversification Matters</h3>
+                <p>Different sectors perform differently each year. Technology may boom while Energy struggles. The S&P 500 automatically diversifies across all 11 sectors, smoothing your returns.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 26: Finding Good Funds -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Research Process</div>
+            <h2>Finding the Best<br>Mutual Funds</h2>
+            <p class="subtitle">A systematic approach to fund selection</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 24px;">1</div>
+                    <h3>Choose Category</h3>
+                    <div class="accent-line"></div>
+                    <p>Visit money.usnews.com/funds</p>
+                    <p style="margin-top: 12px; font-size: 0.95rem; color: var(--gray-600);">Browse "Popular Rankings" for your desired sector or style</p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 24px;">2</div>
+                    <h3>Get Ticker Symbols</h3>
+                    <div class="accent-line"></div>
+                    <p>Copy top 5 fund tickers</p>
+                    <p style="margin-top: 12px; font-size: 0.95rem; color: var(--gray-600);">Example: VFIAX, FXAIX, SWPPX</p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 24px;">3</div>
+                    <h3>Compare</h3>
+                    <div class="accent-line"></div>
+                    <p>Visit marketwatch.com</p>
+                    <p style="margin-top: 12px; font-size: 0.95rem; color: var(--gray-600);">Use "Fund Comparison" tool to analyze returns, fees, holdings</p>
+                </div>
+                
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: var(--primary); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 24px;">4</div>
+                    <h3>Eliminate & Choose</h3>
+                    <div class="accent-line"></div>
+                    <p>Remove poor performers</p>
+                    <p style="margin-top: 12px; font-size: 0.95rem; color: var(--gray-600);">Eliminate funds with loads, high fees (>1%), or poor returns</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 27: S&P 500 Long-term -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">50 Years of Data</div>
+            <h2>S&P 500<br>Perspective</h2>
+            <p class="subtitle">1970-2019: Short-term volatility, long-term growth</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Best Single Year</h3>
+                    <div class="accent-line"></div>
+                    <div class="stat-box" style="margin: 32px 0;">
+                        <span class="stat-number">+37.6%</span>
+                        <span class="stat-label">1995</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Worst Single Year</h3>
+                    <div class="accent-line"></div>
+                    <div class="stat-box" style="margin: 32px 0;">
+                        <span class="stat-number">-37.0%</span>
+                        <span class="stat-label">2008</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Average Return</h3>
+                    <div class="accent-line"></div>
+                    <div class="stat-box" style="margin: 32px 0;">
+                        <span class="stat-number">+10.2%</span>
+                        <span class="stat-label">Per Year</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>20-Year Periods</h3>
+                    <div class="accent-line"></div>
+                    <div class="stat-box" style="margin: 32px 0;">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Positive</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="key-insight">
+                <h3>Perfect Track Record</h3>
+                <p>40 positive years out of 50 (80% success rate). Over ANY 20-year period, the S&P 500 has NEVER had a negative return. Time eliminates risk.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 28: Small Cap Value -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Higher Risk, Higher Reward</div>
+            <h2>Small Cap<br>Value Stocks</h2>
+            <p class="subtitle">Historical performance 1970-2020</p>
+            
+            <div class="split-view">
+                <div class="card">
+                    <h3>Characteristics</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Companies under $2 billion</li>
+                        <li>"Value" pricing (underpriced)</li>
+                        <li>Higher volatility</li>
+                        <li>Greater growth potential</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Historical Returns</h3>
+                    <div class="accent-line"></div>
+                    <div class="stat-box" style="margin: 32px 0;">
+                        <span class="stat-number">12-14%</span>
+                        <span class="stat-label">Average Annual Return</span>
+                    </div>
+                    <p style="text-align: center; color: var(--gray-600);">vs. S&P 500's ~10%</p>
+                </div>
+            </div>
+            
+            <div class="formula-container">
+                <p style="font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9;">Volatility Range</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+                    <div>
+                        <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 8px;">Best Years</p>
+                        <div class="formula" style="font-size: 2.5rem;">+65%</div>
+                    </div>
+                    <div>
+                        <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 8px;">Worst Years</p>
+                        <div class="formula" style="font-size: 2.5rem;">-37%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="key-insight">
+                <h3>For Long-Term Investors Only</h3>
+                <p>Small-cap value can boost returns but requires a strong stomach for volatility and a 20+ year time horizon. Best used as part of a diversified portfolio.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 29: Investment Offices -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Northeast Ohio</div>
+            <h2>Investment<br>Office Locations</h2>
+            <p class="subtitle">Free consultations available at all locations</p>
+            
+            <div class="split-view">
+                <div>
+                    <h3 style="margin-bottom: 40px;">Fidelity Offices</h3>
+                    
+                    <div class="card" style="margin-bottom: 24px;">
+                        <h3 style="font-size: 1.2rem;">Westlake</h3>
+                        <div class="accent-line"></div>
+                        <p>1800 Crocker Road<br/>Westlake, OH 44145</p>
+                        <p style="margin-top: 12px; font-weight: 600; color: var(--accent);">☎ (800) 418-6591</p>
+                    </div>
+                    
+                    <div class="card" style="margin-bottom: 24px;">
+                        <h3 style="font-size: 1.2rem;">Akron</h3>
+                        <div class="accent-line"></div>
+                        <p>3750 W Market St, Unit A<br/>Fairlawn, OH 44333</p>
+                        <p style="margin-top: 12px; font-weight: 600; color: var(--accent);">☎ (800) 476-4735</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="font-size: 1.2rem;">Cleveland East</h3>
+                        <div class="accent-line"></div>
+                        <p>28699 Chagrin Boulevard<br/>Woodmere Village, OH 44122</p>
+                        <p style="margin-top: 12px; font-weight: 600; color: var(--accent);">☎ (800) 432-8359</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: 40px;">Charles Schwab Offices</h3>
+                    
+                    <div class="card" style="margin-bottom: 24px;">
+                        <h3 style="font-size: 1.2rem;">Westlake</h3>
+                        <div class="accent-line"></div>
+                        <p>2211 Crocker Rd, Suite 100<br/>Westlake, OH 44145</p>
+                        <p style="margin-top: 12px; font-weight: 600; color: var(--accent);">☎ (440) 617-2311</p>
+                    </div>
+                    
+                    <div class="card" style="margin-bottom: 24px;">
+                        <h3 style="font-size: 1.2rem;">Akron</h3>
+                        <div class="accent-line"></div>
+                        <p>3067 W Market St, Ste 2 & 3<br/>Fairlawn, OH 44333</p>
+                        <p style="margin-top: 12px; font-weight: 600; color: var(--accent);">☎ (330) 835-5348</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="font-size: 1.2rem;">Pinecrest</h3>
+                        <div class="accent-line"></div>
+                        <p>511 Park Ave, Suite 145<br/>Orange Village, OH 44122</p>
+                        <p style="margin-top: 12px; font-weight: 600; color: var(--accent);">☎ (216) 291-9333</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 30: Bitcoin vs Roth -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">MarketWatch Analysis</div>
+            <h2>Bitcoin vs.<br>Roth IRA</h2>
+            <p class="subtitle">The smart choice for long-term wealth building</p>
+            
+            <div class="comparison">
+                <div class="comparison-item" style="background: var(--gray-50);">
+                    <h3>₿ Cryptocurrency</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>No long-term history</li>
+                        <li>Extreme volatility</li>
+                        <li>Not legal tender</li>
+                        <li>No regulation</li>
+                        <li>Value based only on demand</li>
+                        <li>Can lose everything</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-item highlight">
+                    <h3>💰 Roth IRA + S&P 500</h3>
+                    <div class="accent-line" style="background: var(--secondary);"></div>
+                    <ul class="list-minimal">
+                        <li style="border-color: rgba(255,255,255,0.2);">100+ years of history</li>
+                        <li style="border-color: rgba(255,255,255,0.2);">~10% average returns</li>
+                        <li style="border-color: rgba(255,255,255,0.2);">Grows tax-free forever</li>
+                        <li style="border-color: rgba(255,255,255,0.2);">SEC regulated</li>
+                        <li style="border-color: rgba(255,255,255,0.2);">Backed by real companies</li>
+                        <li style="border-color: rgba(255,255,255,0.2); border-bottom: none;">Never lost over 20 years</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="formula-container">
+                <p style="font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9;">$400 Investment Example</p>
+                <p style="opacity: 0.8; margin-bottom: 40px;">40 years at 12% annual return</p>
+                <div class="formula">$37,220</div>
+                <p style="margin-top: 40px; font-size: 1.1rem; opacity: 0.9;">Tax-free withdrawals in retirement!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 31: Active vs Passive -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge">Wharton Research</div>
+            <h2>Active vs.<br>Passive Investing</h2>
+            <p class="subtitle">Why passive wins for most investors</p>
+            
+            <div class="split-view">
+                <div class="card">
+                    <h3>Passive (Index) Strengths</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Ultra-low fees (0.02-0.20%)</li>
+                        <li>Tax efficient</li>
+                        <li>Predictable performance</li>
+                        <li>Full transparency</li>
+                        <li>Beats 90% of active funds over 15+ years</li>
+                    </ul>
+                </div>
+                
+                <div class="card" style="background: var(--gray-50);">
+                    <h3>Active Management Challenges</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>High fees (1.00-2.00%)</li>
+                        <li>Tax inefficient</li>
+                        <li>Unpredictable performance</li>
+                        <li>Manager risk</li>
+                        <li>97% underperform after fees</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="key-insight">
+                <h3>Overwhelming Evidence</h3>
+                <p>Even large investors often do best using passive investments for the bulk of their holdings. Lower costs, better tax efficiency, and consistent performance make index funds the clear winner.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 32: Two Ways to Reduce Risk -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Risk Management</div>
+            <h2>Reducing<br>Investment Risk</h2>
+            <p class="subtitle">Time and diversification work together</p>
+            
+            <div class="formula-container">
+                <p style="font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9;">Strategy #1: Time in the Market</p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; font-size: 1.1rem;">
+                    <div>
+                        <p style="opacity: 0.8; margin-bottom: 12px;">5-Year Hold</p>
+                        <div style="font-size: 1.8rem; font-weight: 700;">Medium Risk</div>
+                    </div>
+                    <div>
+                        <p style="opacity: 0.8; margin-bottom: 12px;">10-Year Hold</p>
+                        <div style="font-size: 1.8rem; font-weight: 700;">Lower Risk</div>
+                    </div>
+                    <div>
+                        <p style="opacity: 0.8; margin-bottom: 12px;">20+ Year Hold</p>
+                        <div style="font-size: 1.8rem; font-weight: 700;">Lowest Risk</div>
+                    </div>
+                </div>
+            </div>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Portfolio</th>
+                        <th>30-Yr Return</th>
+                        <th>Volatility</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>100% Stocks</td>
+                        <td>11.2%</td>
+                        <td>High</td>
+                        <td>Long time horizon (20+ years)</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>70% Stocks / 30% Bonds</td>
+                        <td>9.5%</td>
+                        <td>Medium</td>
+                        <td>Moderate risk tolerance</td>
+                    </tr>
+                    <tr>
+                        <td>50% Stocks / 50% Bonds</td>
+                        <td>8.3%</td>
+                        <td>Low</td>
+                        <td>Conservative investors</td>
+                    </tr>
+                    <tr>
+                        <td>100% Bonds</td>
+                        <td>5.5%</td>
+                        <td>Very Low</td>
+                        <td>Capital preservation</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SLIDE 33: Final Action Plan -->
+    <div class="slide">
+        <div class="slide-content">
+            <div class="badge accent">Your Next Steps</div>
+            <h2>Take Action<br>Today</h2>
+            <p class="subtitle">The step-by-step path to financial freedom</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="badge">Week 1</div>
+                    <h3>Research & Compare</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Review Fidelity, Schwab, Vanguard</li>
+                        <li>Compare S&P 500 index funds</li>
+                        <li>Check expense ratios</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="badge">Week 2</div>
+                    <h3>Open Your Account</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Choose Roth IRA</li>
+                        <li>Complete application online</li>
+                        <li>Link your bank account</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="badge">Week 3</div>
+                    <h3>Make First Investment</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Transfer initial amount</li>
+                        <li>Buy S&P 500 index fund</li>
+                        <li>Set up automatic monthly deposits</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="badge">Ongoing</div>
+                    <h3>Stay the Course</h3>
+                    <div class="accent-line"></div>
+                    <ul class="list-minimal">
+                        <li>Ignore market noise</li>
+                        <li>Rebalance annually</li>
+                        <li>Increase contributions when able</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="key-insight">
+                <h3>Every Day You Wait Costs You</h3>
+                <p>Remember Ben & Arthur. Starting today versus waiting 8 years could mean hundreds of thousands of dollars in difference. Don't let procrastination steal your financial future.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 34: Final -->
+    <div class="slide hero">
+        <div class="slide-content">
+            <h1 style="font-size: clamp(2.5rem, 6vw, 5rem);">Ready to Begin<br>Your Journey?</h1>
+            <p class="subtitle" style="margin: 40px auto 60px;">Your future self will thank you for starting today</p>
+            
+            <div class="stat-box" style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
+                <span class="stat-number" style="-webkit-text-fill-color: var(--secondary);">$1M+</span>
+                <span class="stat-label" style="color: var(--gray-300);">Investing $500/month for 30 years at 10%</span>
+            </div>
+            
+            <p style="margin-top: 80px; font-size: 1.1rem; opacity: 0.7;">Questions? Visit your local investment office or call for guidance</p>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()" aria-label="Previous slide">←</button>
+        <button class="nav-btn" onclick="nextSlide()" aria-label="Next slide">→</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+        
+        function updateProgress() {
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.transform = `scaleX(${progress / 100})`;
+            
+            // Update navigator current slide indicator
+            document.querySelectorAll('.navigator-item').forEach((item, index) => {
+                item.classList.remove('current');
+            });
+            const navigatorItems = document.querySelectorAll('.navigator-item');
+            navigatorItems.forEach(item => {
+                const itemSlide = parseInt(item.getAttribute('onclick').match(/\d+/)[0]);
+                if (itemSlide === currentSlide) {
+                    item.classList.add('current');
+                }
+            });
+        }
+        
+        function showSlide(n) {
+            if (n >= totalSlides) currentSlide = 0;
+            else if (n < 0) currentSlide = totalSlides - 1;
+            else currentSlide = n;
+            
+            slides.forEach((slide, index) => {
+                slide.style.display = index === currentSlide ? 'flex' : 'none';
+            });
+            
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+            updateProgress();
+            
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        function goToSlide(n) {
+            showSlide(n);
+            toggleNavigator(); // Close navigator after selection
+        }
+        
+        function toggleNavigator() {
+            const navigator = document.querySelector('.slide-navigator');
+            const overlay = document.querySelector('.navigator-overlay');
+            navigator.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            // Close navigator on Escape
+            if (e.key === 'Escape') {
+                const navigator = document.querySelector('.slide-navigator');
+                if (navigator.classList.contains('active')) {
+                    toggleNavigator();
+                }
+                return;
+            }
+            
+            // Don't navigate if navigator is open
+            const navigator = document.querySelector('.slide-navigator');
+            if (navigator.classList.contains('active')) return;
+            
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                goToSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                goToSlide(totalSlides - 1);
+            }
+        });
+        
+        // Touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) previousSlide();
+        }
+        
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
